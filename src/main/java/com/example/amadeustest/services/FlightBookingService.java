@@ -11,6 +11,7 @@ import com.fasterxml.jackson.databind.node.ObjectNode;
 import org.springframework.stereotype.Service;
 
 import java.io.File;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.util.List;
 import java.util.Scanner;
@@ -41,7 +42,7 @@ public class FlightBookingService {
 
         List<FlightOfferData> flightOfferDataList = flightOfferSearchParser.parse(str);
 
-        System.out.println(flightOfferDataList);
+       // System.out.println(flightOfferDataList);
 
         ObjectMapper mapper = new ObjectMapper();
 
@@ -63,9 +64,15 @@ public class FlightBookingService {
 
         String res = amadeusClient.flightOffersPrice(token, body);
 
+        File file2 = new File("C:\\Users\\Lenovo\\IdeaProjects\\amadeus-test\\file2");
+
+        FileWriter fileWriter = new FileWriter(file2);
+        fileWriter.write(res);
+        fileWriter.close();
+
         String price = flightOfferPriceParser.parse(res);
 
-        System.out.println(price);
+      //  System.out.println(price);
 
 
        // System.out.println("-------------------");

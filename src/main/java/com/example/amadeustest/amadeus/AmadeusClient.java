@@ -30,5 +30,9 @@ public interface AmadeusClient {
     String flightOffersPrice(@RequestHeader(name = "Authorization") String authorization,
                              String body);
 
+    @PostMapping(value = "v1/booking/flight-orders", consumes = "application/json")
+    String flightCreateOrders(@RequestHeader(name = "Authorization") String authorization,
+                              String body);
+
 
 }

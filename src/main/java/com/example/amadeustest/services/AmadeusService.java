@@ -23,8 +23,8 @@ public class AmadeusService {
     public String getJson() {
         String token = "Bearer " + authorizationRepository.authorization();
         System.out.println(token);
-        String json = amadeusClient.flightOffersSearch(token, "DME", "DXB",
-                "2024-03-12", "2024-03-18", 1, 2);
+        String json = amadeusClient.flightOffersSearch(token, "MOW", "BER",
+                "2024-03-10", 1, 2);
 
         File file1 = new File("C:\\Users\\Lenovo\\IdeaProjects\\amadeus-test\\file1");
         try {

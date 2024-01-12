@@ -1,7 +1,9 @@
 package com.example.amadeustest;
 
-import com.example.amadeustest.services.FlightBookingService;
+
 import com.example.amadeustest.services.AmadeusService;
+import com.example.amadeustest.services.FlightBookingService;
+import com.example.amadeustest.services.FlightCreateOrderBuilder;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.openfeign.EnableFeignClients;
@@ -13,22 +15,26 @@ import java.io.IOException;
 public class AmadeusTestApplication {
 
     private static AmadeusService amadeusService;
-    private static FlightBookingService jsonExample;
+    private static FlightBookingService flightBookingService;
+    private static FlightCreateOrderBuilder flightCreateOrderBuilder;
 
     public AmadeusTestApplication(AmadeusService amadeusService,
-                                  FlightBookingService jsonExample) {
+                                  FlightBookingService flightBookingService,
+                                  FlightCreateOrderBuilder flightCreateOrderBuilder) {
         this.amadeusService = amadeusService;
-        this.jsonExample = jsonExample;
+        this.flightBookingService = flightBookingService;
+        this.flightCreateOrderBuilder = flightCreateOrderBuilder;
     }
 
     public static void main(String[] args) throws IOException {
         SpringApplication.run(AmadeusTestApplication.class, args);
-      //    String json = amadeusService.getJson();
+        //  String json = amadeusService.getJson();
 
-        //   System.out.println(json);
+        //  System.out.println(json);
 
-         jsonExample.parse();
+       //  flightBookingService.parse();
 
+        flightCreateOrderBuilder.build();
 
     }
 

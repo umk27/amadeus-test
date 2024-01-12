@@ -34,7 +34,7 @@ public class AuthorizationRepository {
         }
         String token = String.valueOf(objectNode.get("access_token"));
         token = token.substring(1, token.length() - 1);
-        System.out.println(token);
+        // System.out.println(token);
         return token;
     }
 }
